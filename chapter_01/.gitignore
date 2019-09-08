@@ -1,0 +1,15 @@
+*.pyc
+*.db
+__pycache__/
+*.db
+*.pyc
+*.db
+*.sqlite3
+*.zip
+*.vscode
+*.idea
+venv/
+.idea/
+.vscode/
+.git/
+
