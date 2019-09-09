@@ -1,9 +1,15 @@
-__pycache__/
-
 *.pyc
-notes/
+*.db
+__pycache__/
+*.db
+*.pyc
+*.db
+*.sqlite3
+*.zip
+*.vscode
+*.idea
+venv/
+.idea/
+.vscode/
+.git/
 
-*_env/
-*_env*/
-
-*.DS_Store
