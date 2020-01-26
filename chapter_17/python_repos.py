@@ -22,4 +22,4 @@ for repo_dict in repo_dicts:
     print(f"Repository: {repo_dict['html_url']}")
     print(f"Created: {repo_dict['created_at']}")
     print(f"Updated: {repo_dict['updated_at']}")
-    print(f"Description: {repo_dict['description']}")
+    print(f"Description: {repo_dict['description']}\n\n")
