@@ -1,3 +1,6 @@
+# --------------------------------------------------------------------------- #
+# D. Rodriguez, 2020-02-03
+# --------------------------------------------------------------------------- #
 import matplotlib.pyplot as plt
 
 from random_walk import RandomWalk
@@ -6,15 +9,15 @@ from random_walk import RandomWalk
 while True:
 
     # Make a random walk
-    rw = RandomWalk(50_000)
+    rw = RandomWalk(500)
     rw.fill_walk()
 
     # PLot the points in the walk.
     plt.style.use('classic')
     fig, ax = plt.subplots(figsize=(15, 9))
     point_numbers = range(rw.num_points)
-    ax.scatter(rw.x_values, rw.y_values, c=point_numbers,
-               cmap=plt.cm.Blues, edgecolors='none', s=1)
+
+    ax.plot(rw.x_values, rw.y_values, linewidth=1)
 
     # Emphasize first and last points
     ax.scatter(0, 0, c='green', edgecolor='none', s=100)
