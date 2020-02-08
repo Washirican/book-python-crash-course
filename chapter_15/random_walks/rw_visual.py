@@ -27,7 +27,9 @@ while True:
 
     plt.show()
 
+# TODO D. Rodriguez 2020-02-8: Uncomment line below to ask for user input
     # keep_running = input('Make another walk? (y/n): ')
     keep_running = 'n'
     if keep_running.lower() == 'n':
         break
+
