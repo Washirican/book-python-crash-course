@@ -3,7 +3,7 @@
 # Change Log: (Who, When, What)
 # D. Rodriguez, 2020-01-29, Initial release
 # --------------------------------------------------------------------------- #
-usernames = ['Dan DaMan', 'Flaco McFlaco', 'El Maestro', 'admin', 'Michael B. Jordan']
+usernames = ['Dan DaMan', 'Flaco McFlaco', 'El Macaracachimba', 'admin', 'Michael B. Jordan']
 
 for name in usernames:
     if name == 'admin':
