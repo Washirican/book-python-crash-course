@@ -1,5 +1,5 @@
 available_toppings = ['mushrooms', 'olives', 'green peppers',
-                      'pepperoni', 'pineapple', 'extra cheese', 'pear']
+                      'pepperoni', 'pineapple', 'extra cheese', 'pear', 'arugula']
 
 requested_toppings = ['mushrooms', 'french fries', 'extra cheese', 'pear']
 

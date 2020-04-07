@@ -4,7 +4,7 @@ from plotly import offline
 from die import Die
 
 # Create two D6 dice
-die_1= Die()
+die_1 = Die()
 die_2 = Die()
 
 
