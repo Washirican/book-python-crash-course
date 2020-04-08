@@ -9,10 +9,10 @@ numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 for number in numbers:
     if number == 1:
-        print(str(number) + 'st')
+        print(f'{number}st')
     elif number == 2:
-        print(str(number) + 'nd')
+        print(f'{number}nd')
     elif number == 3:
-        print(str(number) + 'rd')
+        print(f'{number}rd')
     else:
-        print(str(number) + 'th')
+        print(f'{number}th')
