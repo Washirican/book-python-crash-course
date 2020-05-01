@@ -26,5 +26,11 @@ favorite_languages = {
 # if 'erin' not in favorite_languages.keys():
 #     print(f'\nErin, please take our poll!')
 
-for name in sorted(favorite_languages.keys()):
-    print(f'{name.title()}, thank you for taking the poll!')
+# for name in sorted(favorite_languages.keys()):
+#     print(f'{name.title()}, thank you for taking the poll!')
+
+print(f'The following languages have been mentioned in the poll:')
+count = 0
+for language in set(favorite_languages.values()):
+    count += 1
+    print(f'{count}. {language.title()}')
