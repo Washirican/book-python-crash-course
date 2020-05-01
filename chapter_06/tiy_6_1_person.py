@@ -6,4 +6,4 @@ person = {
     }
 
 for key, value in person.items():
-    print(key, value
+    print(key, value)
