@@ -15,6 +15,7 @@ unsent_messages = ['i love python', 'the future is female', 'carpe diem']
 sent_messages = []
 show_messages(unsent_messages[:], sent_messages)
 
+print()
 print(unsent_messages)
 print(sent_messages)
 
