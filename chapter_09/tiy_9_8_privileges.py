@@ -3,7 +3,6 @@
 # --------------------------------------------------------------------------- #
 
 
-
 class User:
     """User class"""
 
@@ -17,12 +16,12 @@ class User:
 
     def describe_user(self):
         """Describe user."""
-        print(f'\n{self.first_name} {self.last_name} (username: '
+        print(f'{self.first_name} {self.last_name} (username: '
               f'{self.user_name}) lives in {self.location}.')
 
     def greet_user(self):
         """Greets user."""
-        print(f'\nWelcome back, {self.first_name} {self.last_name}.')
+        print(f'Welcome back, {self.first_name} {self.last_name}.')
 
     def increment_login_attempts(self):
         """Increment login attempts by a given value."""
