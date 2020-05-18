@@ -1,0 +1,4 @@
+In Python you can scrape the web.
+In Python you can create functions.
+In Python you can analyze data.
+In Python you can make http requests.
