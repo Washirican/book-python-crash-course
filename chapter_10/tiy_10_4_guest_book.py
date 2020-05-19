@@ -6,6 +6,8 @@ filename = 'guest_book.txt'
 
 active = True
 
+# TODO (D. Rodriguez 2020-05-18): Don't keep file open with while loop.
+#  Only open it when writing to it.
 with open(filename, 'a') as file_object:
 
     while active:
