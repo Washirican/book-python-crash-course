@@ -33,6 +33,8 @@ while True:
     try:
         answer = int(first_number) / int(second_number)
     except ZeroDivisionError:
+        # Execute this if try block fails
         print('You can\'t divide by zero!')
     else:
+        # Add code that depends on try block executing successfully
         print(answer)
