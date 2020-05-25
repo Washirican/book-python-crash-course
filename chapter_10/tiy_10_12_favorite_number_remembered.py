@@ -1,6 +1,7 @@
 # --------------------------------------------------------------------------- #
-# D. Rodriguez, 2020-05-23
+# D. Rodriguez, 2020-05-25
 # --------------------------------------------------------------------------- #
+
 import json
 
 
@@ -34,3 +35,4 @@ get_new_favorite_number()
 
 your_favorite_number = get_stored_favorite_number()
 print(f"Your favorite number is {your_favorite_number}")
+
