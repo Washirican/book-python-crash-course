@@ -1,9 +1,10 @@
 import unittest
 from survey import AnonymousSurvey
 
+
 class TestAnonymousSurvey(unittest.TestCase):
     """Tests for the class AnonymousSurvey"""
-    
+
     def setUp(self):
         """
         Create a survey and a set of responses for use in all test methods.
@@ -23,6 +24,7 @@ class TestAnonymousSurvey(unittest.TestCase):
             self.my_survey.store_response(response)
         for response in self.responses:
             self.assertIn(response, self.my_survey.responses)
+
 
 if __name__ == '__main__':
     unittest.main()
