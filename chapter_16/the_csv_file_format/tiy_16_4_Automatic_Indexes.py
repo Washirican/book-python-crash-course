@@ -9,23 +9,25 @@ from matplotlib import pyplot as plt
 
 def get_weather_data(filename):
     """Get weather data from file."""
+    station_name = ''
     with open(filename) as f:
         reader = csv.reader(f)
         header_row = next(reader)
 
         date_index = header_row.index('DATE')
-        station_name_index = header_row.index('NAME')
+        name_index = header_row.index('NAME')
         highs_index = header_row.index('TMAX')
         lows_index = header_row.index('TMIN')
 
         # Get dates, high and low temperatures.
         dates, highs, lows = [], [], []
         for row in reader:
+            # Grab the station name, if it's not already set.
+            if not station_name:
+                station_name = row[name_index]
+                print(station_name)
+
             current_date = datetime.strptime(row[date_index], '%Y-%m-%d')
-            # TODO (D. Rodriguez 2020-10-18): This reads station name from
-            #  every row even when we know all rows have the same name. Need
-            #  to revise it to read name only once.
-            station_name = row[station_name_index]
 
             try:
                 high = int(row[highs_index])
