@@ -1,12 +1,17 @@
+# --------------------------------------------------------------------------- #
+# D. Rodriguez, 2020-10-21, File Created.
+# --------------------------------------------------------------------------- #
 import json
 import requests
+from plotly.graph_objs import Scattergeo, Layout
+from plotly import offline
 
-# Get recent earthquake data from USGS.
+# Extra credit: Get recent earthquake data from USGS.
 request_url = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_day.geojson'
 response = requests.get(request_url)
 recent_eq_data = response.json()
 
-# Excplore the structure of the data.
+# Explore the structure of the data.
 # filename = 'data/my_eq_data_1_day_m1.json'
 #
 # with open(filename, 'w') as f:
@@ -34,3 +39,10 @@ for eq_dict in all_eq_dicts:
 print(mags[:10])
 print(lons[:10])
 print(lats[:10])
+
+# Map the earthquakes.
+data = [Scattergeo(lon=lons, lat=lats)]
+my_layout = Layout(title='Global Earthquakes')
+
+fig = {'data': data, 'layout': my_layout}
+offline.plot(fig, filename='global_earthquakes.html')
