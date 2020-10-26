@@ -30,7 +30,7 @@ def get_weather_data(filename):
 
 
 # Get Sitka weather data.
-filename = 'data/sitka_weather_2018_simple.csv'
+filename = 'the_csv_file_format/data/sitka_weather_2018_simple.csv'
 dates, highs, lows = get_weather_data(filename)
 
 # Create plot.
@@ -43,7 +43,7 @@ ax.plot(dates, lows, c='blue', alpha=0.5)
 plt.fill_between(dates, highs, lows, facecolor='blue', alpha=0.1)
 
 # Get Death Valley data.
-filename = 'data/death_valley_2018_simple.csv'
+filename = 'the_csv_file_format/data/death_valley_2018_simple.csv'
 dates, highs, lows = get_weather_data(filename)
 
 # Add Death Valley date to plot.

@@ -44,7 +44,7 @@ def get_weather_data(filename):
 
 # Get weather data.
 # filename = 'data/sitka_weather_2018_full.csv'
-filename = 'data/death_valley_2018_full.csv'
+filename = 'the_csv_file_format/data/death_valley_2018_full.csv'
 
 name, dates, highs, lows = get_weather_data(filename)
 
