@@ -1,6 +1,7 @@
 # --------------------------------------------------------------------------- #
-# D. Rodriguez, 2020-10-21, File Created.
+# D. Rodriguez, 2020-10-27, File Created.
 # --------------------------------------------------------------------------- #
+
 import json
 import requests
 from plotly.graph_objs import Scattergeo, Layout
@@ -19,9 +20,12 @@ recent_eq_data = response.json()
 # with open(filename, 'w') as f:
 #     json.dump(recent_eq_data, f)
 
-readable_file = 'data/readable_eq_data.json'
-with open(readable_file, 'w') as f:
-    json.dump(recent_eq_data, f, indent=4)
+# readable_file = 'data/readable_eq_data.json'
+# with open(readable_file, 'w') as f:
+#     json.dump(recent_eq_data, f, indent=4)
+
+# Get chart title from json data
+title = recent_eq_data['metadata']['title']
 
 # Extract earthquake dictionaries from json data
 all_eq_dicts = recent_eq_data['features']
@@ -30,17 +34,18 @@ all_eq_dicts = recent_eq_data['features']
 # Get earthquake magnitudes and store them in a list.
 mags, lons, lats, hover_texts = [], [], [], []
 for eq_dict in all_eq_dicts:
-    mag = eq_dict['properties']['mag']
-    lon = eq_dict['geometry']['coordinates'][0]
-    lat = eq_dict['geometry']['coordinates'][1]
+    # mag = eq_dict['properties']['mag']
+    # lon = eq_dict['geometry']['coordinates'][0]
+    # lat = eq_dict['geometry']['coordinates'][1]
 
     # Get additional data from file for hover text.
-    title = eq_dict['properties']['title']
+    # title = eq_dict['properties']['title']
 
-    mags.append(mag)
-    lons.append(lon)
-    lats.append(lat)
-    hover_texts.append(title)
+    # Refactor to use values directly and not saving to temporary variables
+    mags.append(eq_dict['properties']['mag'])
+    lons.append(eq_dict['geometry']['coordinates'][0])
+    lats.append(eq_dict['geometry']['coordinates'][1])
+    hover_texts.append(eq_dict['properties']['title'])
 
 # print(mags[:10])
 # print(lons[:10])
@@ -68,7 +73,7 @@ data = [
         }
     ]
 
-my_layout = Layout(title='Global Earthquakes')
+my_layout = Layout(title=title)
 
 fig = {'data': data, 'layout': my_layout}
 offline.plot(fig, filename='global_earthquakes.html')
