@@ -63,6 +63,7 @@ data = [
         'marker': {
             # Define marker size depending on earthquake magnitude.
             'size': [5*mag for mag in mags],
+
             # Customizing marker colors.
             'color': mags,
             'colorscale': 'Viridis',
