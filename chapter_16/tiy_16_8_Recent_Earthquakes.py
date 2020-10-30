@@ -2,14 +2,13 @@
 # D. Rodriguez, 2020-10-27, File Created.
 # --------------------------------------------------------------------------- #
 
-import json
 import requests
 from plotly.graph_objs import Scattergeo, Layout
 from plotly import offline
 
 # Extra credit: Get recent earthquake data from USGS.
 request_url = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/' \
-              '2.5_day.geojson'
+              '1.0_day.geojson'
 
 response = requests.get(request_url)
 recent_eq_data = response.json()
@@ -74,6 +73,14 @@ data = [
     ]
 
 my_layout = Layout(title=title)
+my_layout.geo.update(
+        showcountries=True,
+        fitbounds='locations',
+        )
 
-fig = {'data': data, 'layout': my_layout}
+fig = {
+    'data': data,
+    'layout': my_layout
+    }
+
 offline.plot(fig, filename='global_earthquakes.html')
