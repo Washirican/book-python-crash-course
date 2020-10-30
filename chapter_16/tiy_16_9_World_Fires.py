@@ -24,8 +24,8 @@ with open(filename) as f:
         dates.append(datetime.strptime(row[5], '%Y-%m-%d'))
         brightnesses.append(float(row[2]))
         hover_texts.append(
-                f"{datetime.strptime(row[5], '%Y-%m-%d').strftime('%m/%d/%y')} "
-                f"- {float(row[2])}")
+                f"{datetime.strptime(row[5], '%Y-%m-%d').strftime('%m/%d/%y')}"
+                f" - {float(row[2])}")
 
         latitudes.append(float(row[0]))
         longitudes.append(float(row[1]))
