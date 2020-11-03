@@ -39,6 +39,7 @@ data = [
         'type': 'scattergeo',
         'lon': longitudes,
         'lat': latitudes,
+        'locationmode': 'USA-states',
         'text': hover_texts,
         'marker': {
             'size': [brightness/20 for brightness in brightnesses],
@@ -53,7 +54,9 @@ data = [
 my_layout = Layout(title='United States Wildfires')
 my_layout.geo.update(
         showcountries=True,
-        fitbounds='locations',
+        # fitbounds='locations',
+        scope='usa',
+        landcolor='rgb(217, 217, 217)',
         )
 
 fig = {
