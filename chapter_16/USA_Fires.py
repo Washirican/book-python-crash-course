@@ -64,4 +64,7 @@ fig.update_layout(
                 )
         )
 
-fig.show()
+# fig.show()
+
+offline.plot(fig, filename='us_wildfires.html')
+
