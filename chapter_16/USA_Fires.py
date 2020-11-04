@@ -36,35 +36,40 @@ with open(filename) as f:
         if row_num == num_rows:
             break
 
-fig = go.Figure()
+# This should not be public!
+mapbox_access_token = 'pk.eyJ1Ijoid2FzaGlyaWNhbiIsImEiOiJja2gyeG9kdWUxYXJoMnJybmlweXg2aTRiIn0.AnaSkQ6ZFXEHsd4kWYoQxw'  # open(".mapbox_token").read()
 
-fig.add_trace(go.Scattergeo(
-        locationmode='USA-states',
+# Define chart in a way that is better to customize it.
+fig = go.Figure(go.Scattermapbox(
         lon=longitudes,
         lat=latitudes,
         text=hover_texts,
-        marker=dict(
-                size=brightnesses,  # [brightness/10 for brightness in brightnesses],
-                color=brightnesses,
-                line_color='rgb(40,40,40)',
-                colorscale='YlOrRd',
-                line_width=0.5,
-                sizemode='area',
-                colorbar={'title': 'Brightness'},
+        marker=go.scattermapbox.Marker(
+                {
+                    'size': [brightness / 20 for brightness in brightnesses],
+                    'color': brightnesses,
+                    # 'line_color': 'rgb(40,40,40)',
+                    'colorscale': 'YlOrRd',
+                    'colorbar': {'title': 'Brightness'},
+                    }
                 ),
 
         ))
 
 fig.update_layout(
         title_text='United States Wildfires',
-        # showlegend=True,
-        geo=dict(
-                scope='usa',
-                landcolor='rgb(217, 217, 217)',
+        hovermode='closest',
+        mapbox_style='carto-positron',
+        mapbox=dict(
+                accesstoken=mapbox_access_token,
+                bearing=0,
+                center=go.layout.mapbox.Center(
+                        lat=38,
+                        lon=-94,
+                        ),
+                pitch=0,
+                zoom=3.5,
                 )
         )
 
-# fig.show()
-
 offline.plot(fig, filename='us_wildfires.html')
-

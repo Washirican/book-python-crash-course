@@ -4,7 +4,7 @@
 import csv
 from datetime import datetime
 
-from plotly.graph_objs import Scattergeo, Layout
+import plotly.graph_objs as go
 from plotly import offline
 
 filename = 'mapping_global_data_sets/data/modis_2019_United_States.csv'
@@ -51,17 +51,32 @@ data = [
         }
     ]
 
-my_layout = Layout(title='United States Wildfires')
-my_layout.geo.update(
-        showcountries=True,
-        # fitbounds='locations',
-        scope='usa',
-        landcolor='rgb(217, 217, 217)',
-        )
+fig = go.Figure()
 
-fig = {
-    'data': data,
-    'layout': my_layout,
-    }
+fig.add_trace(go.Scattergeo(
+        locationmode='USA-states',
+        lon=longitudes,
+        lat=latitudes,
+        text=hover_texts,
+        marker={
+            'size': [brightness/20 for brightness in brightnesses],
+            'color': brightnesses,
+            'line_color': 'rgb(40,40,40)',
+            'colorscale': 'YlorRd',
+            # 'sizemode': 'area',
+            # 'line_width': 0.5,
+            'colorbar': {
+                'title': 'Brightness',
+                }
+            }
+        ))
+
+fig.update_layout(
+        title_text='United States Wildfires',
+        geo={
+            'scope': 'usa',
+            'landcolor': 'rgb(217, 217, 217)',
+            }
+        )
 
 offline.plot(fig, filename='us_wildfires.html')
