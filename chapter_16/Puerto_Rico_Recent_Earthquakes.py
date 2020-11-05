@@ -9,7 +9,7 @@ from plotly import offline
 
 # Extra credit: Get recent earthquake data from USGS.
 request_url = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/' \
-              '1.0_week.geojson'
+              '2.5_week.geojson'
 
 response = requests.get(request_url)
 recent_eq_data = response.json()
