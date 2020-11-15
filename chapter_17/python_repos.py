@@ -8,11 +8,19 @@ print(f"Status code: {r.status_code}")
 
 # Store API response in a variable.
 response_dict = r.json()
+print(response_dict.keys())
+
 print(f"Total repositories: {response_dict['total_count']}")
 
 # Explore information about the repositories.
 repo_dicts = response_dict['items']
 print(f"Repositories returned: {len(repo_dicts)}")
+
+# repo_dict = repo_dicts[0]
+# print(f'\nKeys: {len(repo_dict)}')
+# for key in sorted(repo_dict.keys()):
+#     print(key)
+
 
 print("\nSelected information about each repository:")
 for repo_dict in repo_dicts:
