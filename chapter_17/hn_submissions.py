@@ -21,8 +21,13 @@ for submission_id in submission_ids[:10]:
     submission_dict = {
         'title': response_dict['title'],
         'hn_link': f"http://news.ycombinator.com/item?id={submission_id}",
-        'comments': response_dict['descendants'],
         }
+    # Handle news articles with no user comments (i.e. no descendants key)
+    try:
+        submission_dict['comments'] = response_dict['descendants']
+    except KeyError:
+        submission_dict['comments'] = 0
+
     submission_dicts.append(submission_dict)
 
 submission_dicts = sorted(submission_dicts, key=itemgetter('comments'),
